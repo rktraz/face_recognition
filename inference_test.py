@@ -6,6 +6,7 @@ from collections import Counter
 import cv2
 from ultralytics import YOLO
 
+model_name = "yolov8l_dataset_v6.pt"
 
 CONF = 0.5  # Confidence threshold
 DETECTION_INTERVAL = 3  # Detection interval in seconds
@@ -38,7 +39,7 @@ def determine_person_presence(detected_persons):
     return mode_person, mode_presence
 
 # load my YOLO model
-model = YOLO("models/medium_dataset_v6.pt")
+model = YOLO(f"models/{model_name}")
 model.conf = CONF
 
 # using webcam
